@@ -79,17 +79,40 @@ setInterval(function() {
       saveBtn.attr("data-hour", dailySchedule[i].val);
       // attach a click event listener to the save button
       saveBtn.click(saveEvent);
-    }}
+    
 
     //create the save icon (add class and attr to the icon)
     var icon = $("<i>");
       icon.addClass("fas fa-save");
       icon.attr("aria-hidden", "true");
       icon.attr("data-hour", dailySchedule[i].val)
+
     //insert icon into save button
       saveBtn.append(icon);
+
     //insert label, eventText, savebtn to <div>
       row.append(label);
       row.append(eventText);
       row.append(saveBtn);
+
+    //calling dayjs format, and create variable for 
+      console.log(dayjs().hour());
+      var currentHour = dayjs().hour();
+    // var currentHour = 13; 
+      console.log(dailySchedule[i].val);
+    // write statement if current hour is greater than the time on the schedule -> will be past, 
+    //less than the time on the schedule -> will be future, same -> current 
+      if(currentHour > dailySchedule[i].val) {
+        row.addClass("past");
+      }else if (currentHour < dailySchedule[i].val) {
+        row.addClass("future");
+      }else {
+        row.addClass("present");
+      }
+      //insert the div with id=schedule to row 
+      $("#schedule").append(row);
+    }
+  }
+  //call function
+  renderSchedule();
   
