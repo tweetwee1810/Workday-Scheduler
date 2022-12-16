@@ -3,6 +3,7 @@
 ## Description 
 This is the Work-schedule planner. When you open the planner, the current day is displayed at the top of the calendar.
 
+
 ![Alt text](w5.PNG)
 
 
@@ -21,6 +22,13 @@ If you click into a random timeblock, you can input any notes/events and you can
 Once you save the events, the saved events persist when you refresh the page. 
 
 ![Alt text](w5-4.PNG)
+
+
+If you open the app that are not with the business time (from 9am-6pm), it will display grey for all of the block. 
+
+![Alt text](w5-6.PNG)
+
+
 
 ## Installation 
 N/A
