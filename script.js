@@ -56,23 +56,23 @@ setInterval(function() {
         event: "",
       }
   ];
-//create a render function for the columns and values and hours
+    //create a render function for the columns and values and hours
   function renderSchedule() {
     for (let i = 0; i < dailySchedule.length; i++) {
-        //create a row variable for the time-block (row)
+        //create time-blocks rows
       var row = $("<div>");
       row.addClass("row time-block");
-     //create a var for all divs to label the time 
+     //insert time-block columns
       var label = $("<div>");
       label.addClass("col-2 col-md-1 hour text-center py-3");
       label.text(dailySchedule[i].text);
-        //variable for the textarea and create new class for textarea with the time and value
+    //add class for textarea with the time and value
       var eventText = $("<textarea>");
       eventText.addClass("col-8 col-md-10 description");
       eventText.attr("rows", "3");
       eventText.val(dailySchedule[i].event);
       eventText.attr("data-hour", dailySchedule[i].val);
-    //create a save button on the right side
+    //create a save button on the 3rd right columns
       var saveBtn = $("<button>");
       saveBtn.addClass("btn saveBtn col-2 col-md-1");
       saveBtn.attr("aria-label", "save");
@@ -80,3 +80,16 @@ setInterval(function() {
       // attach a click event listener to the save button
       saveBtn.click(saveEvent);
     }}
+
+    //create the save icon (add class and attr to the icon)
+    var icon = $("<i>");
+      icon.addClass("fas fa-save");
+      icon.attr("aria-hidden", "true");
+      icon.attr("data-hour", dailySchedule[i].val)
+    //insert icon into save button
+      saveBtn.append(icon);
+    //insert label, eventText, savebtn to <div>
+      row.append(label);
+      row.append(eventText);
+      row.append(saveBtn);
+  
