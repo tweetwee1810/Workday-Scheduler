@@ -25,16 +25,12 @@ Once you save the events, the saved events persist when you refresh the page.
 ![Alt text](w5-4.PNG)
 
 
-If you open the app that are not with the business time (from 9am-6pm), it will display grey for all of the block. 
+If you open the app that are not with the business time and greater than your current hour , it will display grey for all of the block. 
 
 
 ![Alt text](w5-6.PNG)
 
 
-If 1pm is your current hour => the before 1pm will be grey, 1pm will display as red, after 1pm will display as green 
-
-
-![Alt text](w5-5.PNG)
 
 
 ## Installation 

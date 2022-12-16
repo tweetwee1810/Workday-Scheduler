@@ -56,6 +56,27 @@ setInterval(function() {
         event: "",
       }
   ];
+
+  function saveEvent(event) {
+    // find the textbox with the same data-hour attribute as the event.target
+    let hour = event.target.getAttribute("data-hour");
+    let input = $(`textarea[data-hour="${hour}"]`);
+    console.log(input.val());
+  
+    // check data-hour attribute on the event.target and use that to loop through the dailySchedule array and compare the dailySchedule[i].val to the data-hour property on the event to find the entry in the dailySchedule array
+
+    for(let i = 0; i < dailySchedule.length; i++) {
+      if(dailySchedule[i].val == hour) {
+        dailySchedule[i].event = input.val();
+      }
+    }
+  
+    console.log(dailySchedule);
+  //add dailySchedule to the local storage using JSON
+    localStorage.setItem("dailySchedule", JSON.stringify(dailySchedule));
+  
+  }
+  
     //create a render function for the columns and values and hours
   function renderSchedule() {
     for (let i = 0; i < dailySchedule.length; i++) {
